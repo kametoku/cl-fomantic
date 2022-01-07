@@ -1,0 +1,17 @@
+* cl-fomantic
+
+** Usage
+
+** Installation
+
+** Author
+
++ Tokuya Kameshima
+
+** Copyright
+
+Copyright (c) 2022 Tokuya Kameshima
+
+** License
+
+LLGPL
