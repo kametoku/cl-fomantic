@@ -17,9 +17,7 @@
   dropdown-item)
 
 (defun ensure-value-key (value)
-  (etypecase value
-    (number value)
-    (t (tkutil:ensure-keyword value))))
+  (tkutil:ensure-keyword value))
 
 (defmethod initialize-instance :after ((widget selection-dropdown-widget)
                                        &key dropdown-items &allow-other-keys)
