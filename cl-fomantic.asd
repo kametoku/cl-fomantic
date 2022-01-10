@@ -16,6 +16,7 @@
                 :components ((:file "package")
                              (:file "module")
                              (:file "calendar")
+                             (:file "checkbox")
                              (:file "modal")
                              (:file "dropdown")
                              (:file "selection-dropdown")

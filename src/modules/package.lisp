@@ -48,6 +48,12 @@
            #:js-show-modal
            #:js-hide-modal
 
+           ;; checkbox widget
+           #:checkbox-widget
+;;            #:name
+;;            #:value
+           #:make-checkbox-widget
+
            ;; toast module
            #:toast
            #:send-toast
