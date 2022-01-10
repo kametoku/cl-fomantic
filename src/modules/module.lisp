@@ -19,7 +19,7 @@
 initialization method for the module will be invoked on."))
 
 (defmethod element-id ((widget module-widget))
-  (weblocks/widgets/dom:dom-id widget))
+  (reblocks/widgets/dom:dom-id widget))
 
 (defmethod initialize-instance :after ((widget module-widget)
                                        &key (class (default-div-class widget))
@@ -66,17 +66,17 @@ documeant element with PARAMETERS."
          (init-parameters (make-init-parameter (init-parameters widget))))
     (js-method widget init-method init-parameters)))
 
-(defmethod weblocks/dependencies:get-dependencies ((widget module-widget))
+(defmethod reblocks/dependencies:get-dependencies ((widget module-widget))
   ;; $(function() {
   ;;   return $(document.getElementById('dom109')).XXX({flag : true});
   ;; });
   (let ((dependency
-          (weblocks-parenscript:make-dependency
+          (reblocks-parenscript:make-dependency
             ($ (lambda () (ps:lisp (js-initialize-module widget)))))))
     (append (list dependency)
             (call-next-method))))
 
-(defmethod weblocks/widget:render ((widget module-widget))
+(defmethod reblocks/widget:render ((widget module-widget))
   (let ((inner (inner widget)))
     (cond ((null inner))
           ((functionp inner)
@@ -84,7 +84,7 @@ documeant element with PARAMETERS."
              (funcall inner widget)))
           (t (render inner)))))
 
-(defmethod weblocks/widget:get-css-classes ((widget module-widget))
+(defmethod reblocks/widget:get-css-classes ((widget module-widget))
   (nconc (div-class widget) (call-next-method)))
 
 (defun make-module-widget (class init-method &rest init-parameters)
@@ -105,7 +105,7 @@ init-parameters ::= {key value}*"
                                  :init-parameters (list ,@(cdr initialize))
                                  ,@args)))
      (setf (inner ,widget) (lambda (widget) (progn ,@body)))
-     (weblocks/widget:render ,widget)))
+     (reblocks/widget:render ,widget)))
 
 #|
 (fomantic.modules:with-module-widget 'fomantic.dropdown:dropdown-widget

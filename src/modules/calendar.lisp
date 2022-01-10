@@ -52,13 +52,13 @@
                                          date (get-full-year))))
                               (+ year "-" month "-" day))))))
   
-(defmethod weblocks/widget:render ((widget calendar-widget))
+(defmethod reblocks/widget:render ((widget calendar-widget))
   (with-html
     ;; <div class="ui calendar" ... </div>
     (:div :class "ui input left icon"
           (:i :class "calendar icon")
           (:input :type "text"
-                  :name (weblocks/widgets/dom:dom-id widget)
+                  :name (reblocks/widgets/dom:dom-id widget)
                   :value (initial-date widget)
                   :autocomplete "off"
                   :placeholder (placeholder widget)))))

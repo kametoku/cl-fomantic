@@ -52,7 +52,7 @@
   (with-html
     (:input :type "hidden" :name (name widget)
             :value (ensure-value-key (dropdown-item-value (value widget)))
-            :onchange (weblocks-parenscript:make-js-handler
+            :onchange (reblocks-parenscript:make-js-handler
                        :lisp-code ((&key value &allow-other-keys)
                                    (onchange widget :value value))
                        :js-code ((event)

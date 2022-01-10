@@ -29,7 +29,7 @@ page is locked so that any user operation on the page is blocked until
 ACTION is completed."
   (let ((*js-show-modal* (%js-show-modal widget)))
     (if action
-        (weblocks-parenscript:make-js-handler
+        (reblocks-parenscript:make-js-handler
          :lisp-code ((&rest args)
                      (unwind-protect
                           (handler-bind
@@ -37,10 +37,10 @@ ACTION is completed."
                                  (lambda (condition)
                                    (declare (ignore condition))
                                    ;; Hide the modal on server side error.
-                                   (weblocks/response:send-script
+                                   (reblocks/response:send-script
                                     (js-method widget 'modal "hide")))))
                             (apply action args))
-                       (weblocks/response:send-script
+                       (reblocks/response:send-script
                         '(screen-unlock))))
          :js-code ((event)
                    (ps:lisp *js-show-modal*)     ; XXX

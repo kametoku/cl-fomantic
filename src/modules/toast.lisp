@@ -18,5 +18,5 @@
     (funcall #'js-method nil 'toast parameters)))
 
 (defun send-toast (&rest args)
-  (weblocks/response:send-script
+  (reblocks/response:send-script
    (apply #'toast args)))

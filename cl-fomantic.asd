@@ -4,10 +4,10 @@
   :license "LLGPL"
   :depends-on ("alexandria"
                "cl-ppcre"
-               "weblocks"
-               "weblocks-lass"
-               "weblocks-parenscript"
-               "weblocks-ui"
+               "reblocks"
+               "reblocks-lass"
+               "reblocks-parenscript"
+               "reblocks-ui"
 
                "tkutil"           ; https://github.com/kametoku/tkutil
                )

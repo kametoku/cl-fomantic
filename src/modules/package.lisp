@@ -3,11 +3,11 @@
 (defpackage #:fomantic.modules
   (:use #:cl)
   (:nicknames #:fui.modules)
-  (:import-from #:weblocks/widget
+  (:import-from #:reblocks/widget
                 #:defwidget
                 #:render
                 #:update)
-  (:import-from #:weblocks/html
+  (:import-from #:reblocks/html
                 #:with-html)
   (:export #:module-widget
            #:element-id
