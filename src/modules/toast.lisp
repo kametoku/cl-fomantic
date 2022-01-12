@@ -15,6 +15,7 @@
                       compact))
   (setf (getf args :message)
         (if raw-p message (spinneret::escape-to-string message)))
+  (remf args :raw-p)
   (let ((parameters (make-init-parameter args)))
 ;;     (log:debug parameters)
     (funcall #'js-method nil 'toast parameters)))
