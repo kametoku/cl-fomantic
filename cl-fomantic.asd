@@ -22,15 +22,15 @@
                              (:file "selection-dropdown")
                              (:file "toast"))))
   :description "Tiny Common Lisp Wrapper for Fomantic-UI"
-  :in-order-to ((test-op (test-op "cl-fomantic-test"))))
+  :in-order-to ((test-op (test-op "cl-fomantic/test"))))
 
-(defsystem "cl-fomantic-test"
-  :defsystem-depends-on ("prove-asdf")
-  :author "Tokuya Kameshima"
+(defsystem "cl-fomantic/tests"
+  :author ""
   :license ""
   :depends-on ("cl-fomantic"
-               "prove")
+               "rove")
   :components ((:module "tests"
-                :components ((:test-file "cl-fomantic"))))
+                :components
+                ((:file "cl-fomantic"))))
   :description "Test system for cl-fomantic"
-  :perform (test-op (op c) (symbol-call :prove-asdf :run-test-system c)))
+  :perform (test-op (op c) (symbol-call :rove :run c)))
