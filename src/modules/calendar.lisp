@@ -8,6 +8,7 @@
   ;; type ::= "datetime" | "date" | "time" | "month" | "year"
   ((type :initarg :type :initform "date" :reader calendar-type)
    (value :initarg :value :initform nil :accessor value)
+   (required :initarg :required :initform nil :accessor required)
    (start-calendar-name :initarg :start-calendar-name
                         :initform nil
                         :reader start-calendar-name)
@@ -56,6 +57,7 @@
           (:input :type "text"
                   :name (name widget)
                   :value (value widget)
+                  :required (required widget)
                   :onchange (reblocks-parenscript:make-js-handler
                              :lisp-code ((&key value &allow-other-keys)
                                          (onchange widget :value value))
@@ -65,8 +67,8 @@
                   :placeholder (placeholder widget)))))
 
 (defun make-calendar-widget (&rest args
-                             &key name type value start-calendar-name
+                             &key name type value required start-calendar-name
                                end-calendar-name action placeholder icon)
-  (declare (ignore type value start-calendar-name
+  (declare (ignore type value required start-calendar-name
                    end-calendar-name action placeholder icon))
   (apply #'make-instance 'calendar-widget :dom-id name args))
